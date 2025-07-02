@@ -7,7 +7,7 @@
 
 // Home Page Component for Movie Ticket Booking Application
 const Home = () => {
-  return <div>Home</div>;
+  return <div></div>;
 };
 
 // Export

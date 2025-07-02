@@ -7,7 +7,7 @@
 
 // Footer Component for Movie Ticket Booking Application
 const Footer = () => {
-  return <div>Footer</div>;
+  return <div></div>;
 };
 
 // Export
