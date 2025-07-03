@@ -5,9 +5,16 @@
  * @copyright 2025 monayem_hossain_limon
  */
 
+// Internal Imports
+import HeroSection from '../components/HeroSection';
+
 // Home Page Component for Movie Ticket Booking Application
 const Home = () => {
-  return <div></div>;
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 };
 
 // Export
