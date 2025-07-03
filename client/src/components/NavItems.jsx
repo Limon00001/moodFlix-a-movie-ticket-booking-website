@@ -18,7 +18,8 @@ const NavItems = ({ item, isActive, setIsOpen }) => {
         isActive(item.path) ? 'text-primary' : ''
       }`}
       onClick={() => {
-        scrollTo(0, 0), setIsOpen(false);
+        scrollTo(0, 0);
+        setIsOpen(false);
       }}
     >
       {item.name}
