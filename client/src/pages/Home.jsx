@@ -8,6 +8,7 @@
 // Internal Imports
 import FeaturedSection from '../components/FeaturedSection';
 import HeroSection from '../components/HeroSection';
+import TrailerSection from '../components/TrailerSection';
 
 // Home Page Component for Movie Ticket Booking Application
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
     <>
       <HeroSection />
       <FeaturedSection />
+      <TrailerSection />
     </>
   );
 };
