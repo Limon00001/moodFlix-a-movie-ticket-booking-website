@@ -17,6 +17,7 @@ import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import Movies from './pages/Movies';
 import MyBookings from './pages/MyBookings';
+import NotFound from './pages/NotFound';
 import SeatLayout from './pages/SeatLayout';
 
 // App Component
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/movies/:id/:date" element={<SeatLayout />} />
         <Route path="/my-bookings" element={<MyBookings />} />
         <Route path="/favorite" element={<Favorite />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {/* Render Footer only for non-admin routes */}
