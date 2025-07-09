@@ -38,3 +38,14 @@
 .no-scrollbar {
   scrollbar-width: none;
 }
+
+/* Remove Number Input Arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Invert Calendar Icon */
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
