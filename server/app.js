@@ -6,8 +6,17 @@
  */
 
 // External Imports
+import { clerkMiddleware } from '@clerk/express';
 import cors from 'cors';
+import { config } from 'dotenv';
 import express from 'express';
+import { serve } from 'inngest/express';
+
+// Internal Imports
+import { functions, inngest } from './inngest/index.js';
+
+// Load environment variables
+config();
 
 // Create an Express app
 const app = express();
@@ -23,11 +32,13 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(clerkMiddleware());
 
 // Routes
 app.get('/', (req, res) => {
   res.send('Server is running!');
 });
+app.use('/api/inngest', serve({ client: inngest, functions }));
 
 // Export
 export default app;

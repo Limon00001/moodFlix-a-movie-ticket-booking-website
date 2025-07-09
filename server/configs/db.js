@@ -6,7 +6,11 @@
  */
 
 // External Imports
+import { config } from 'dotenv';
 import mongoose from 'mongoose';
+
+// Load environment variables
+config();
 
 // Database connection
 const connectDB = async () => {
