@@ -8,28 +8,17 @@
 // External Imports
 import { clerkMiddleware } from '@clerk/express';
 import cors from 'cors';
-import { config } from 'dotenv';
 import express from 'express';
 import { serve } from 'inngest/express';
 
 // Internal Imports
 import { functions, inngest } from './inngest/index.js';
 
-// Load environment variables
-config();
-
 // Create an Express app
 const app = express();
 
 // Middlewares
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  }),
-);
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(clerkMiddleware());

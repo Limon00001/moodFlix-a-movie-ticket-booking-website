@@ -6,22 +6,18 @@
  */
 
 // External Imports
-import { config } from 'dotenv';
 import mongoose from 'mongoose';
-
-// Load environment variables
-config();
 
 // Database connection
 const connectDB = async () => {
   try {
-    // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI);
-
     // Event listeners
     mongoose.connection.on('connected', () => {
       console.log('Database connected');
     });
+
+    // Connect to MongoDB
+    await mongoose.connect(process.env.MONGODB_URI);
 
     mongoose.connection.on('disconnected', () => {
       console.log('Database disconnected');
