@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(clerkMiddleware());
 
 // Routes
-app.use('/', (req, res) => console.log('Server is running...'));
+app.use('/', (req, res) => res.send('Server is running...'));
 app.use('/api/inngest', serve({ client: inngest, functions }));
 
 // Server Start
