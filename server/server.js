@@ -9,6 +9,8 @@
 import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
+
+// Internal Imports
 import connectDB from './configs/db.js';
 
 // App Initialization
