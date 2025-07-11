@@ -1,34 +1,27 @@
 /**
  * Author: Monayem Hossain Limon
  * GitHub: https://github.com/Limon00001
- * Date: 09 Jul, 2025
+ * Date: 11 Jul, 2025
  * @copyright 2025 monayem_hossain_limon
  */
 
 // External Imports
 import mongoose from 'mongoose';
 
-// Database connection
+// DB Connection
 const connectDB = async () => {
   try {
-    // Event listeners
-    mongoose.connection.on('connected', () => {
-      console.log('Database connected');
-    });
+    // MongoDB Connection Settings
+    mongoose.connection.on('connected', () =>
+      console.log('Database Connected'),
+    );
 
-    // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI);
-
-    mongoose.connection.on('disconnected', () => {
-      console.log('Database disconnected');
-    });
-
-    mongoose.connection.on('error', (error) => {
-      console.error(`Database connection error: ${error}`);
-      process.exit(1);
-    });
+    // MongoDB Connection
+    await mongoose.connect(
+      `${process.env.MONGODB_URI}/movie-ticket-booking-DB-2025`,
+    );
   } catch (error) {
-    console.error(`Database setup error: ${error}`);
+    console.error(error);
     process.exit(1);
   }
 };

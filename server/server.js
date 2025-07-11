@@ -1,25 +1,32 @@
 /**
  * Author: Monayem Hossain Limon
  * GitHub: https://github.com/Limon00001
- * Date: 09 Jul, 2025
+ * Date: 11 Jul, 2025
  * @copyright 2025 monayem_hossain_limon
  */
 
 // External Imports
-import { config } from 'dotenv';
-
-// Internal Imports
-import app from './app.js';
+import cors from 'cors';
+import 'dotenv/config';
+import express from 'express';
 import connectDB from './configs/db.js';
 
-// Load environment variables
-config();
+// App Initialization
+const app = express();
 
-// Get the port from environment or default to 5001
-const PORT = process.env.PORT || 5001;
+// Server Port
+const port = process.env.PORT || 5000;
 
-// Start the server
-app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
-  await connectDB();
-});
+// DB Connection
+await connectDB();
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/', (req, res) => console.log('Server is running...'));
+
+// Server Start
+app.listen(port, () => console.log(`Server is running on port ${port}`));
