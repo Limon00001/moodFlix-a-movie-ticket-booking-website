@@ -6,12 +6,15 @@
  */
 
 // External Imports
+import { clerkMiddleware } from '@clerk/express';
 import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
+import { serve } from 'inngest/express';
 
 // Internal Imports
 import connectDB from './configs/db.js';
+import { functions, inngest } from './inngest/index.js';
 
 // App Initialization
 const app = express();
@@ -26,9 +29,11 @@ await connectDB();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(clerkMiddleware());
 
 // Routes
 app.use('/', (req, res) => console.log('Server is running...'));
+app.use('/api/inngest', serve({ client: inngest, functions }));
 
 // Server Start
 app.listen(port, () => console.log(`Server is running on port ${port}`));
